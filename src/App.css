@@ -2,6 +2,32 @@
   text-align: center;
 }
 
+.wallet{
+  background-color: #282c34;
+  align-items:flex-start;
+}
+
+.button {
+  background-color: aquamarine; 
+  border: 5px;
+  border-color: aqua;
+  color: blue;
+  padding: 15px 22px;
+  text-align: center;
+  text-decoration: none;
+  margin-left: .3%;
+  margin-right: .2%;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 6%;
+}
+
+.button:hover {
+  background-color: #4CAF50; /* Green */
+  color: white;
+  
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
