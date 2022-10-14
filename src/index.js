@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import * as fcl from "@onflow/fcl";
+import { account, query, config, Wallet, logIn } from "@onflow/fcl";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -17,10 +18,7 @@ root.render(
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
 
-
-
-
-export function authenticate(){
+export function loader(){
   fcl.config()
   // connect to Flow testnet
   // for fcl@<1.0.0 this should be https://access-testnet.onflow.org
@@ -30,6 +28,11 @@ export function authenticate(){
     
     // use Blocto testnet wallet
     .put("challenge.handshake", "https://flow-wallet-testnet.blocto.app/authn")
+}
+
+
+export function authenticate(){
+  
 
     fcl
       .currentUser()
@@ -46,4 +49,17 @@ export function unauthenticate(){
     
   // unauthenticate and clear account info in FCL
   fcl.unauthenticate()
+}
+
+export async function showBal(){
+  unauthenticate();
+
+  const wallet = await logIn();
+  console.log("mikky");
+  console.log({ wallet });
+  console.log("mrinalini");
+    // We will take only "balance" field from account details
+  const { balance } = await account(wallet.addr);
+  const flowBalance = balance / Math.pow(10, 8);
+  console.log({ flowBalance });
 }
