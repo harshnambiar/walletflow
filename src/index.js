@@ -55,9 +55,9 @@ export async function showBal(){
   unauthenticate();
 
   const wallet = await logIn();
-  console.log("mikky");
+  
   console.log({ wallet });
-  console.log("mrinalini");
+  
     // We will take only "balance" field from account details
   const { balance } = await account(wallet.addr);
   const flowBalance = balance / Math.pow(10, 8);
